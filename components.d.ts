@@ -12,7 +12,10 @@ declare module 'vue' {
     RouterView: typeof import('vue-router')['RouterView']
     VarAppBar: typeof import('@varlet/ui')['_AppBarComponent']
     VarButton: typeof import('@varlet/ui')['_ButtonComponent']
+    VarCounter: typeof import('@varlet/ui')['_CounterComponent']
     VarIcon: typeof import('@varlet/ui')['_IconComponent']
     VarLink: typeof import('@varlet/ui')['_LinkComponent']
+    VarOption: typeof import('@varlet/ui')['_OptionComponent']
+    VarSelect: typeof import('@varlet/ui')['_SelectComponent']
   }
 }
