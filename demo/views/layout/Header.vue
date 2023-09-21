@@ -16,6 +16,6 @@
 
 <script setup lang="ts">
 const goGithub = () => {
-  window.open('https://www.baidu.com', 'blank')
+  window.open('https://github.com/chouchouji/vue3-infinite-scroll', 'blank')
 }
 </script>
