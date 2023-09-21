@@ -8,7 +8,6 @@ import { VarletUIResolver } from 'unplugin-vue-components/resolvers'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: '/vue3-infinite-scroll/',
   plugins: [
     vue(),
     components({
@@ -25,7 +24,7 @@ export default defineConfig({
   },
   build: {
     lib: {
-      name: 'vue3-infinite-scroll',
+      name: '@binbinji/vue3-infinite-scroll',
       entry: path.resolve(__dirname, '/src/index.ts')
     },
     rollupOptions: {
