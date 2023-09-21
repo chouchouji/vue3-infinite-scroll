@@ -32,7 +32,7 @@ const data = useData()
   height: 100%;
   overflow: hidden;
   color: #555;
-  border-bottom: 1px solid #ccc;
+  border-right: 1px solid #ccc;
   box-sizing: border-box;
 }
 
