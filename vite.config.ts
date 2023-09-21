@@ -8,6 +8,7 @@ import { VarletUIResolver } from 'unplugin-vue-components/resolvers'
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  base: '/vue3-infinite-scroll/',
   plugins: [
     vue(),
     components({
