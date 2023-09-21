@@ -1,7 +1,7 @@
 var J = Object.defineProperty;
 var j = (t, e, i) => e in t ? J(t, e, { enumerable: !0, configurable: !0, writable: !0, value: i }) : t[e] = i;
 var m = (t, e, i) => (j(t, typeof e != "symbol" ? e + "" : e, i), i);
-import { defineComponent as K, ref as g, computed as A, onMounted as Q, onBeforeUnmount as X, watch as x, openBlock as T, createElementBlock as O, normalizeStyle as P, createElementVNode as tt, Fragment as et, renderList as it, renderSlot as nt } from "vue";
+import { defineComponent as K, ref as g, computed as A, onMounted as Q, onBeforeUnmount as X, watch as x, openBlock as w, createElementBlock as O, normalizeStyle as P, createElementVNode as tt, Fragment as et, renderList as it, renderSlot as nt } from "vue";
 const st = "auto", R = "start", rt = "center", ot = "end", C = "vertical", W = "horizontal", at = {
   [C]: "top",
   [W]: "left"
@@ -31,7 +31,7 @@ const st = "auto", R = "start", rt = "center", ot = "end", C = "vertical", W = "
     type: Number,
     default: 0
   },
-  scrollOffset: {
+  scrollToOffset: {
     type: Number,
     default: 0
   },
@@ -86,7 +86,7 @@ function zt() {
     vMax: Math.max(t, e)
   };
 }
-const v = (t) => u(t) && t.endsWith("rem"), yt = (t) => u(t) && t.endsWith("em") && !t.endsWith("rem"), Mt = (t) => u(t) && t.endsWith("px") || _(t), At = (t) => u(t) && t.endsWith("%"), $ = (t) => u(t) && t.endsWith("vw"), k = (t) => u(t) && t.endsWith("vh"), V = (t) => u(t) && t.endsWith("vmin"), D = (t) => u(t) && t.endsWith("vmax"), xt = (t) => u(t) && t.startsWith("calc("), Nt = (t) => u(t) && t.startsWith("var("), wt = (t) => {
+const v = (t) => u(t) && t.endsWith("rem"), yt = (t) => u(t) && t.endsWith("em") && !t.endsWith("rem"), Mt = (t) => u(t) && t.endsWith("px") || _(t), At = (t) => u(t) && t.endsWith("%"), $ = (t) => u(t) && t.endsWith("vw"), k = (t) => u(t) && t.endsWith("vh"), V = (t) => u(t) && t.endsWith("vmin"), D = (t) => u(t) && t.endsWith("vmax"), xt = (t) => u(t) && t.startsWith("calc("), Tt = (t) => u(t) && t.startsWith("var("), Nt = (t) => {
   if (_(t))
     return t;
   if (Mt(t))
@@ -109,9 +109,9 @@ const v = (t) => u(t) && t.endsWith("rem"), yt = (t) => u(t) && t.endsWith("em")
   return u(t) ? St(t) : 0;
 }, I = (t) => {
   if (t != null)
-    return At(t) || $(t) || k(t) || yt(t) || v(t) || xt(t) || Nt(t) || V(t) || D(t) ? t : `${wt(t)}px`;
+    return At(t) || $(t) || k(t) || yt(t) || v(t) || xt(t) || Tt(t) || V(t) || D(t) ? t : `${Nt(t)}px`;
 };
-class Tt {
+class wt {
   constructor({ itemCount: e, itemSizeGetter: i, estimatedItemSize: n }) {
     m(this, "itemSizeGetter");
     m(this, "itemCount");
@@ -272,7 +272,7 @@ const Ot = K({
   props: lt,
   setup(t) {
     let e = {}, i, n = 0, o = 0;
-    const r = g(0), d = g(8), l = g(null), c = g(), z = g(), b = A(() => t.data ? t.data.length : 0), N = A(() => t.estimatedSize || 50), G = A(() => t.data ? t.data.slice(r.value, Math.min(t.data.length, d.value + 1)) : []), B = A(() => t.direction === "horizontal" ? "scrollLeft" : "scrollTop"), U = () => ({
+    const r = g(0), d = g(8), l = g(null), c = g(), z = g(), b = A(() => t.data ? t.data.length : 0), T = A(() => t.estimatedSize || 50), G = A(() => t.data ? t.data.slice(r.value, Math.min(t.data.length, d.value + 1)) : []), B = A(() => t.direction === "horizontal" ? "scrollLeft" : "scrollTop"), U = () => ({
       ...ut,
       width: I(t.width),
       height: I(t.height)
@@ -294,12 +294,12 @@ const Ot = K({
         [at[t.direction]]: I(h)
       };
     }, q = () => {
-      H(), l.value.addEventListener("scroll", E), n = t.scrollOffset || t.scrollToIndex != null && M(t.scrollToIndex, t.scrollToAlignment) || 0, setTimeout(() => {
-        t.scrollOffset != null ? w(t.scrollOffset) : t.scrollToIndex != null && w(M(t.scrollToIndex, t.scrollToAlignment));
+      H(), l.value.addEventListener("scroll", E), n = t.scrollToOffset || t.scrollToIndex != null && M(t.scrollToIndex, t.scrollToAlignment) || 0, setTimeout(() => {
+        t.scrollToOffset != null ? N(t.scrollToOffset) : t.scrollToIndex != null && N(M(t.scrollToIndex, t.scrollToAlignment));
       }, 0), z.value = U(), c.value = L();
-    }, H = () => (i || (i = new Tt({
+    }, H = () => (i || (i = new wt({
       itemCount: b.value,
-      estimatedItemSize: N.value,
+      estimatedItemSize: T.value,
       itemSizeGetter: (s) => Y(s)
     })), i), E = (s) => {
       const a = t.direction === "vertical" ? l.value.scrollTop : l.value.scrollLeft;
@@ -310,12 +310,12 @@ const Ot = K({
         offset: n || 0,
         overscanCount: S
       });
-      h.start != null && h.stop != null && (r.value = h.start, d.value = h.stop), c.value = L(), n !== o && w(n);
-    }, w = (s) => {
+      h.start != null && h.stop != null && (r.value = h.start, d.value = h.stop), c.value = L(), n !== o && N(n);
+    }, N = (s) => {
       l.value && (l.value[B.value] = s, o = s);
     }, Y = (s) => {
       const a = t.itemSize;
-      return typeof a == "function" ? a(s) : Array.isArray(a) ? a[s] : a || N.value;
+      return typeof a == "function" ? a(s) : Array.isArray(a) ? a[s] : a || T.value;
     }, M = (s, a) => {
       (s < 0 || s >= b.value) && (s = 0);
       const { width: f, height: S, direction: h } = t;
@@ -338,11 +338,11 @@ const Ot = K({
       (s) => {
         i.updateConfig({
           itemCount: (s == null ? void 0 : s.length) || 0,
-          estimatedItemSize: N.value
+          estimatedItemSize: T.value
         }), n = 0, o = 0, e = {}, i.resetItem(0);
       }
     ), x(
-      () => t.scrollOffset,
+      () => t.scrollToOffset,
       (s) => {
         n = s, y();
       }
@@ -372,14 +372,14 @@ const Ot = K({
   return i;
 };
 function Ct(t, e, i, n, o, r) {
-  return T(), O("div", {
+  return w(), O("div", {
     ref: "rootNode",
     style: P(t.wrapStyle)
   }, [
     tt("div", {
       style: P(t.innerStyle)
     }, [
-      (T(!0), O(et, null, it(t.visibleData, (d, l) => (T(), O("div", {
+      (w(!0), O(et, null, it(t.visibleData, (d, l) => (w(), O("div", {
         key: l + t.start,
         style: P(t.getItemStyle(l))
       }, [
