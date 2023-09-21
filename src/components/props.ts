@@ -27,7 +27,7 @@ export const props = {
     type: Number,
     default: 0
   },
-  scrollOffset: {
+  scrollToOffset: {
     type: Number,
     default: 0
   },

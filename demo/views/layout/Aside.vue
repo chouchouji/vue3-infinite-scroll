@@ -8,7 +8,9 @@
         @click="activeIndex = index"
         :class="{ 'active-link': activeIndex === index }"
       >
-        <var-link :to="link.to" text-color="#5d5d5d" underline="none">{{ link.title }}</var-link>
+        <var-link class="link-text" :to="link.to" text-color="#5d5d5d" underline="none">{{
+          link.title
+        }}</var-link>
       </div>
     </div>
   </div>
@@ -31,8 +33,8 @@ const links = ref([
     title: 'Dynamic height'
   },
   {
-   to: '/scroll/index',
-   title: 'Scroll to index'
+    to: '/scroll/index',
+    title: 'Scroll to index'
   },
   {
     to: '/scroll/offset',
@@ -45,6 +47,7 @@ const activeIndex = ref(0)
 <style scoped>
 .sidebar {
   width: 280px;
+  height: calc(100% - 54px);
   position: absolute;
   background-color: #fff;
   box-shadow: 3px 0 6px rgba(0, 0, 0, 0.24);
@@ -57,8 +60,16 @@ const activeIndex = ref(0)
 
 .link {
   height: 45px;
-  padding: 5px 25px;
+  padding: 5px;
+}
+
+.link-text {
+  display: block;
+  width: 100%;
+  height: 45px;
+  padding-left: 25px;
   line-height: 45px;
+  text-align: left;
   cursor: pointer;
 }
 

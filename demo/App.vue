@@ -22,12 +22,10 @@ import Aside from './views/layout/Aside.vue'
   width: 100%;
   height: 100%;
   overflow: hidden;
-  display: flex;
-  flex-direction: column;
 }
 
 .main {
-  flex: 1;
+  height: calc(100% - 54px);
   display: flex;
 }
 

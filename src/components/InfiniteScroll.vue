@@ -108,14 +108,14 @@ export default defineComponent({
       rootNode.value!.addEventListener('scroll', handleScroll)
 
       offset =
-        props.scrollOffset ||
+        props.scrollToOffset ||
         (props.scrollToIndex != null &&
           getOffsetFromIdxAndAlign(props.scrollToIndex, props.scrollToAlignment)) ||
         0
 
       setTimeout(() => {
-        if (props.scrollOffset != null) {
-          scrollTo(props.scrollOffset)
+        if (props.scrollToOffset != null) {
+          scrollTo(props.scrollToOffset)
         } else if (props.scrollToIndex != null) {
           scrollTo(getOffsetFromIdxAndAlign(props.scrollToIndex, props.scrollToAlignment))
         }
@@ -238,7 +238,7 @@ export default defineComponent({
     )
 
     watch(
-      () => props.scrollOffset,
+      () => props.scrollToOffset,
       (newOffset) => {
         offset = newOffset
         processScroll()
