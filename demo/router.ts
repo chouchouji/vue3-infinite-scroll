@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHashHistory } from 'vue-router'
 
 const EqualHeight = () => import('./views/EqualHeight.vue')
 const EqualWidth = () => import('./views/EqualWidth.vue')
@@ -7,8 +7,7 @@ const ScrollToIndex = () => import('./views/ScrollToIndex.vue')
 const ScrollToOffset = () => import('./views/ScrollToOffset.vue')
 
 const router = createRouter({
-  // @ts-ignore
-  history: createWebHistory(import.meta.env.BASE_URL),
+  history: createWebHashHistory(),
   routes: [
     { path: '/', redirect: '/equal/height' },
     {
