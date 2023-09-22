@@ -1,6 +1,6 @@
 {
   "name": "@binbinji/vue3-infinite-scroll",
-  "version": "0.0.3",
+  "version": "0.0.7",
   "author": "chouchouji",
   "license": "MIT",
   "description": "An infinite scroll component for vue3",
@@ -23,6 +23,9 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/chouchouji/vue3-infinite-scroll"
+  },
+  "bugs": {
+    "url": "https://github.com/chouchouji/vue3-infinite-scroll/issues"
   },
   "scripts": {
     "dev": "vite --host 0.0.0.0",

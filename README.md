@@ -1,46 +1,53 @@
-# vue3-infinite-scroll
+# Introduction
 
-This template should help get you started developing with Vue 3 in Vite.
+vue3-infinite-scroll is a powerful and tiny infinite scroll library for vue3.
 
-## Recommended IDE Setup
+# Features
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+- Tiny, only 4kb after gzip
+- Support vertical and horizontal mode
+- Display millions of data 
+- Set scroll index、offset or alignment to show specific data
 
-## Type Support for `.vue` Imports in TS
+try all examples on this [link](https://chouchouji.github.io/vue3-infinite-scroll/).
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin) to make the TypeScript language service aware of `.vue` types.
+# Install
 
-If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has also implemented a [Take Over Mode](https://github.com/johnsoncodehk/volar/discussions/471#discussioncomment-1361669) that is more performant. You can enable it by the following steps:
+## [npm](https://www.npmjs.com/)
 
-1. Disable the built-in TypeScript Extension
-    1) Run `Extensions: Show Built-in Extensions` from VSCode's command palette
-    2) Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
-2. Reload the VSCode window by running `Developer: Reload Window` from the command palette.
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
-
-## Project Setup
-
-```sh
-npm install
+```
+npm install @binbinji/vue3-infinite-scroll --save
 ```
 
-### Compile and Hot-Reload for Development
+## [yarn](https://yarnpkg.com/)
 
-```sh
-npm run dev
+```
+yarn add @binbinji/vue3-infinite-scroll
 ```
 
-### Type-Check, Compile and Minify for Production
-
-```sh
-npm run build
+```js
+import InfiniteScroll from '@binbinji/vue3-infinite-scroll'
 ```
 
-### Lint with [ESLint](https://eslint.org/)
+# Props
 
-```sh
-npm run lint
-```
+| Property          | Type               | Required? | Description                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| :---------------- | :----------------- | :-------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| width             | number / string | ✓         | The width of container. This property will determine the number of rendered items when direction is `'horizontal'`                                                                                                                                                                                                                                                                                                                  |
+| height            | number / string | ✓         | The height of container. This property will determine the number of rendered items when direction is `'vertical'`.                                                                                                                                                                                                                                                                                                                       |
+| data              | any[]              | ✓         | Data source for scrolling list.                                                                                                                                                                                                                                                                                                                                                 |
+| itemSize          |  (index: number): number / number[] / number                 |          | Either a fixed height/width (depending on the direction), an array containing the heights of all the items in your list, or a function that returns the height of an item given its index: `(index: number): number`.                                                                                                                                                                                        |
+| direction   | string             |           |Scrolling direction of the list which optional value is `horizontal` or `vertical`. The default value is `vertical`. |                                                                                                                                                                                                                                                                              
+| estimatedSize   | number            |           | When the size of each piece of data rendered is not fixed, you can use this property to set an estimated size which default value is `50`.   |                                                                                                                                                                                                                                                                                                                        
+| scrollToOffset      | number             |           | Can be used to control the scroll offset; Also useful for setting an initial scroll offset                                                                                                                                                                                                                                                                                                                                            |
+| scrollToIndex     | number             |           | Item index to scroll to (by forcefully scrolling if necessary)                                                                                                                                                                                                                                                                                                                                                                        |
+| scrollToAlignment | string             |           | Used in combination with `scrollToIndex`, this prop controls the alignment of the scrolled to item. One of: `'start'`, `'center'`, `'end'` or `'auto'`. Use `'start'` to always align items to the top of the container and `'end'` to align them bottom. Use `'center`' to align them in the middle of the container. `'auto'` scrolls the least amount possible to ensure that the specified `scrollToIndex` item is fully visible. |
+| overscanCount     | number             |           | Number of extra buffer items to render above/below the visible items. Tweaking this can help reduce scroll flickering on certain browsers/devices.                                                                                                                                                                                                                                                                                    |
+
+# Acknowledgments
+
+This library is transplanted from [vue3-infinite-list](https://github.com/tnfe/vue3-infinite-list/). Thanks!
+
+# License
+
+MIT.
